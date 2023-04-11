@@ -1,2 +1,3 @@
 # vba-macros
-En este repositorio se alojará las diversas macros que me ayudarán a optimizar mi trabajo
+## Mejora en el rendimiento laboral
+En este repositorio se alojarán las diversas macros que me ayudarán a optimizar mi trabajo
