@@ -271,8 +271,7 @@ Dim cont As Long
     Selection.Delete Shift:=xlToLeft
     Range("AD2").Select
     
-'Esta parte cambia el formato de destino de
-'Fecha al mes en curso
+'Esta parte cambia el formato de destino de fecha al mes en curso
 
     Range("AC2").Select
     Range(Selection, Selection.End(xlDown)).Select
