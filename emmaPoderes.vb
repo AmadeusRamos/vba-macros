@@ -2,7 +2,10 @@ Option Explicit
 
 Sub emmaPoderes()
 
+Application.ScreenUpdating = True
+
 Dim corpor As String, cod_Cierr As String, hms As String, call_Inc As String
+Dim zona As String, reg_Op As String, modo_Rec As String, dir_Inc As String
 Dim entre_Inc As String, col_Inc As String, ref_Inc As String, not_Inc As String
 Dim fec_Rv As String, aaaa_Rv As String, mm_Rv As String, dd_Rv As String
 Dim h_Rv As String, form_Rv As String, mod_V As String, marc_V As String
@@ -11,6 +14,7 @@ Dim notaV_ As String, hom_Tot As String, hom_Hombr As String, hom_Muj As String
 Dim hom_Desc As String, arma As String
 Dim ultFila As Long
 Dim cont As Long
+Dim celda As Range
 
 '>>>>>>>>>>>>>>>>>>>>PRIMERA PARTE<<<<<<<<<<<<<<<<<<<<
 
@@ -18,138 +22,73 @@ Dim cont As Long
 'Dejando solamente el primer dato que es útil para la base de datos
 'Que se actualiza en Postgres constantemente
 
-'Columna MOD_V
+'Inicia la limpeza con la función ESPACIOS seleccionando todo el espacio de trabajo
 
-    Columns("AJ:BC").Select
-    Selection.Insert Shift:=xlToRight
-    Range("AI2").Select
+Selection.CurrentRegion.Select
+
+For Each celda In Selection
+celda.Value = LTrim(celda.Value)
+celda.Value = RTrim(celda.Value)
+Next
+
+'Columna MOD_V
+	
+    Columns("AJ:AS").Insert Shift:=xlToRight
     Range("AI2", Range("AI1048576").End(xlUp)).Select
     Selection.TextToColumns Destination:=Range("AI2"), DataType:=xlDelimited, _
-        textqualifier:=xlDoubleQuote, consecutivedelimiter:=False, Tab:=True, _
-        semicolon:=False, comma:=True, Space:=False, other:=False, fieldinfo _
-        :=Array(1, 1), trailingminusnumbers:=True
-    Columns("AJ:BC").Select
+        textqualifier:=xlDoubleQuote, Tab:=True, comma:=True, fieldinfo:=Array(1, 1)
+    Columns("AJ:AS").Select
     Selection.Delete Shift:=xlToLeft
-    Range("AI2").Select
     
 'Columna MARC_V
 
-    Columns("AK:BD").Select
-    Selection.Insert Shift:=xlToRight
-    Range("AJ2").Select
-    Range("AJ2", Range("AI1048576").End(xlUp)).Select
+    Columns("AK:AT").Insert Shift:=xlToRight
+    Range("AJ2", Range("AJ1048576").End(xlUp)).Select
     Selection.TextToColumns Destination:=Range("AJ2"), DataType:=xlDelimited, _
-        textqualifier:=xlDoubleQuote, consecutivedelimiter:=False, Tab:=True, _
-        semicolon:=False, comma:=True, Space:=False, other:=False, fieldinfo _
-        :=Array(1, 1), trailingminusnumbers:=True
-    Columns("AK:BD").Select
+        textqualifier:=xlDoubleQuote, Tab:=True, comma:=True, fieldinfo:=Array(1, 1)
+    Columns("AK:AT").Select
     Selection.Delete Shift:=xlToLeft
-    Range("AJ2").Select
-
+    
 'Columna SUBMAR_V
 
-    Columns("AL:BE").Select
-    Selection.Insert Shift:=xlToRight
-    Range("AK2").Select
-    Range("AK2", Range("AI1048576").End(xlUp)).Select
+    Columns("AL:AU").Insert Shift:=xlToRight
+    Range("AK2", Range("AK1048576").End(xlUp)).Select
     Selection.TextToColumns Destination:=Range("AK2"), DataType:=xlDelimited, _
-        textqualifier:=xlDoubleQuote, consecutivedelimiter:=False, Tab:=True, _
-        semicolon:=False, comma:=True, Space:=False, other:=False, fieldinfo _
-        :=Array(1, 1), trailingminusnumbers:=True
-    Columns("AL:BE").Select
+        textqualifier:=xlDoubleQuote, Tab:=True, comma:=True, fieldinfo:=Array(1, 1)
+    Columns("AL:AU").Select
     Selection.Delete Shift:=xlToLeft
-    Range("AK2").Select
-    
+        
 'Columna COLOR_V
     
-    Columns("AM:BF").Select
-    Selection.Insert Shift:=xlToRight
-    Range("AL2").Select
-    Range("AL2", Range("AI1048576").End(xlUp)).Select
+    Columns("AM:AV").Insert Shift:=xlToRight
+    Range("AL2", Range("AL1048576").End(xlUp)).Select
     Selection.TextToColumns Destination:=Range("AL2"), DataType:=xlDelimited, _
-        textqualifier:=xlDoubleQuote, consecutivedelimiter:=False, Tab:=True, _
-        semicolon:=False, comma:=True, Space:=False, other:=False, fieldinfo _
-        :=Array(1, 1), trailingminusnumbers:=True
-    Columns("AM:BF").Select
+        textqualifier:=xlDoubleQuote, Tab:=True, comma:=True, fieldinfo:=Array(1, 1)
+    Columns("AM:AV").Select
     Selection.Delete Shift:=xlToLeft
-    Range("AL2").Select
-    
+        
 'Columna PLACA_V
 
-    Columns("AN:BG").Select
-    Selection.Insert Shift:=xlToRight
-    Range("AM2").Select
-    Range("AM2", Range("AI1048576").End(xlUp)).Select
+    Columns("AN:AW").Insert Shift:=xlToRight
+    Range("AM2", Range("AM1048576").End(xlUp)).Select
     Selection.TextToColumns Destination:=Range("AM2"), DataType:=xlDelimited, _
-        textqualifier:=xlDoubleQuote, consecutivedelimiter:=False, Tab:=True, _
-        semicolon:=False, comma:=True, Space:=False, other:=False, fieldinfo _
-        :=Array(1, 1), trailingminusnumbers:=True
-    Columns("AN:BG").Select
+        textqualifier:=xlDoubleQuote, Tab:=True, comma:=True, fieldinfo:=Array(1, 1)
+    Columns("AN:AW").Select
     Selection.Delete Shift:=xlToLeft
-    Range("AM2").Select
     
 'Columna LAMINAV_
 
-    Columns("AO:BH").Select
-    Selection.Insert Shift:=xlToRight
-    Range("AN2").Select
-    Range("AN2", Range("AI1048576").End(xlUp)).Select
+    Columns("AO:AX").Insert Shift:=xlToRight
+    Range("AN2", Range("AN1048576").End(xlUp)).Select
     Selection.TextToColumns Destination:=Range("AN2"), DataType:=xlDelimited, _
-        textqualifier:=xlDoubleQuote, consecutivedelimiter:=False, Tab:=True, _
-        semicolon:=False, comma:=True, Space:=False, other:=False, fieldinfo _
-        :=Array(1, 1), trailingminusnumbers:=True
-    Columns("AO:BH").Select
-    Selection.Delete Shift:=xlToLeft
-    Range("AN2").Select
-
-'Inicia la limpeza con la función ESPACIOS tomando los rangos "V:AB" y "AH:AO"
-
-    Columns("V:AB").Select
-    Selection.Insert Shift:=xlToRight
-    Range("AC2:AI2").Select
-    Range(Selection, Selection.End(xlDown)).Select
-    Selection.Copy Destination:=Range("V2:AB2")
-    Range("V2:AB2", Range("V2:AB2").End(xlDown)).Select
-    
-    With Selection
-    
-    .FormulaR1C1 = "=TRIM(RC[7])"
-    .Copy
-    
-    End With
-    
-    Range("AC2").Select
-    Selection.PasteSpecial Paste:=xlPasteValues
-    Selection.NumberFormat = "General"
-    Columns("V:AB").Select
-    Selection.Delete Shift:=xlToLeft
-       
-'Rango de "AH:AO"
-    
-    Columns("AH:AO").Select
-    Selection.Insert Shift:=xlToRight
-    Range("AP2:AW2").Select
-    Range(Selection, Selection.End(xlDown)).Select
-    Selection.Copy Destination:=Range("AH2:AO2")
-    Range("AH2:AO2", Range("AH2:AO2").End(xlDown)).Select
-    
-    With Selection
-    
-    .FormulaR1C1 = "=TRIM(RC[8])"
-    .Copy
-    
-    End With
-    
-    Range("AP2").Select
-    Selection.PasteSpecial Paste:=xlPasteValues
-    Selection.NumberFormat = "General"
-    Columns("AH:AO").Select
+        textqualifier:=xlDoubleQuote, Tab:=True, comma:=True, fieldinfo:=Array(1, 1)
+    Columns("AO:AX").Select
     Selection.Delete Shift:=xlToLeft
 
 '>>>>>>>>>>>>>>>>>>>>SEGUNDA PARTE<<<<<<<<<<<<<<<<<<<<
 
-'Este segmento extrae del campo FECHA_RV los datos y los va
-'Agregando en las tres columnas siguientes AAAA_RV, MM_RV, DD_RV
+'Este segmento extrae del campo FECHA_RV los datos y los va agregando en
+'Las tres columnas siguientes AAAA_RV, MM_RV, DD_RV
 
     Range("AC2").Select
     Range(Selection, Selection.End(xlDown)).Select
@@ -187,8 +126,7 @@ Dim cont As Long
     Selection.Delete Shift:=xlToLeft
     Range("AD2").Select
     
-'Esta parte cambia el formato de destino de
-'Fecha al mes en curso
+'Esta parte cambia el formato de destino de fecha al mes en curso
 
     Range("AC2").Select
     Range(Selection, Selection.End(xlDown)).Select
@@ -265,13 +203,9 @@ Dim cont As Long
 ' Esta sección cambia el formato de hh:mm a hh:mm:ss
 ' Comienza con la columna "T"
 
-    Columns("U:U").Select
-    Selection.Insert Shift:=xlToRight
+    Columns("U:U").Insert Shift:=xlToRight
     Range("T2").Select
-    
-    Range("T2").Select
-    Range(Selection, Selection.End(xlDown)).Select
-    Selection.Copy Destination:=Range("U2")
+    Range(Selection, Selection.End(xlDown)).Copy Destination:=Range("U2")
     Range("U2", Range("U2").End(xlDown)).Select
                
     With Selection
@@ -284,19 +218,14 @@ Dim cont As Long
                 
     End With
     
-    Range("T2").Select
-    Selection.PasteSpecial Paste:=xlPasteValues
-    Columns("U:U").Select
-    Selection.Delete Shift:=xlToLeft
-    Range("T2").Select
+    Range("T2").PasteSpecial Paste:=xlPasteValues
+    Columns("U:U").Delete Shift:=xlToLeft
 
 'Continúa con la columna "AG" donde está el siguiente dato
 
-    Columns("AH:AH").Select
-    Selection.Insert Shift:=xlToRight
+    Columns("AH:AH").Insert Shift:=xlToRight
     Range("AG2").Select
-    Range(Selection, Selection.End(xlDown)).Select
-    Selection.Copy Destination:=Range("AH2")
+    Range(Selection, Selection.End(xlDown)).Copy Destination:=Range("AH2")
     Range("AH2", Range("AH2").End(xlDown)).Select
     
     With Selection
@@ -309,26 +238,46 @@ Dim cont As Long
         
     End With
     
-    Range("AG2").Select
-    Selection.PasteSpecial Paste:=xlPasteValues
-    Columns("AH:AH").Select
-    Selection.Delete Shift:=xlToLeft
+    Range("AG2").PasteSpecial Paste:=xlPasteValues
+    Columns("AH:AH").Delete Shift:=xlToLeft
     Range("AG2").Select
 
 
 '>>>>>>>>>>>>>>>>>>>>TERCERA PARTE<<<<<<<<<<<<<<<<<<<<
 
 'En esta sección se van a quitar texto y números no deseados de los rangos
-'"L:M", "X:AB" y de "AI:AO"
+'"J:N", "W:AB", "AG" y de "AI:AO"
 
 ultFila = Range("A" & Rows.Count).End(xlUp).Row
     
+'ZONA
+	
+	For cont = 2 To ultFila
+		zona = Cells(cont, 10)
+		
+		If zona = "" Then
+		 Cells(cont, 10) = "SIN DATO"
+		 
+		End If
+	Next cont
+
+'REG_OP
+
+	For cont = 2 To ultFila
+		reg_Op = Cells(cont, 11)
+		
+		If reg_Op = "" Then
+		 Cells(cont, 11) = "SIN DATO"
+		
+		End If
+	Next cont
+
 'CORPOR
 
     For cont = 2 To ultFila
         corpor = Cells(cont, 12)
         
-        If corpor = "" Or corpor = "0" Or corpor = "-" Then
+        If corpor = "" Or corpor = "0" Or corpor = "-" Or corpor = " - " Then
          Cells(cont, 12) = "SIN DATO"
          
         End If
@@ -339,18 +288,40 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
     For cont = 2 To ultFila
         cod_Cierr = Cells(cont, 13)
         
-        If cod_Cierr = "" Or cod_Cierr = "0" Or cod_Cierr = "-" Then
+        If cod_Cierr = "" Or cod_Cierr = "0" Or cod_Cierr = "-" Or cod_Cierr = " - " Then
          Cells(cont, 13) = "SIN DATO"
          
         End If
     Next cont
     
+'MODO_REC
+
+	For cont = 2 To ultFila
+		modo_Rec = Cells(cont, 14)
+		
+		If modo_Rec = "" Then
+		 Cells(cont, 14) = "SIN DATO"
+		 
+		End If
+	Next cont
+
+'DIR_INC
+
+	For cont = 2 To ultFila
+		dir_Inc = Cells(cont, 23)
+		
+		If dir_Inc = "" Then
+		 Cells(cont, 23) = "SIN DATO"
+		
+		End If
+	Next cont
+
 'CALL_INC
 
     For cont = 2 To ultFila
         call_Inc = Cells(cont, 24)
         
-        If call_Inc = "" Or call_Inc = "0" Or call_Inc = "-" Or call_Inc = "M" Or call_Inc = "N" Or call_Inc = "N.P" Or call_Inc = "N.P." Then
+        If call_Inc = "" Or call_Inc = "0" Or call_Inc = "-" Or call_Inc = " - " Or call_Inc = "M" Or call_Inc = "N" Or call_Inc = "N.P" Or call_Inc = "N.P." Then
          Cells(cont, 24) = "SIN DATO"
          
         ElseIf call_Inc = "N/P" Or call_Inc = "N´P" Or call_Inc = "NA" Or call_Inc = "ND" Or call_Inc = "NINGUNA" Or call_Inc = "NINGUNO" Then
@@ -403,7 +374,7 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
     For cont = 2 To ultFila
         entre_Inc = Cells(cont, 25)
         
-        If entre_Inc = "" Or entre_Inc = "0" Or entre_Inc = "-" Or entre_Inc = "M" Or entre_Inc = "N" Or entre_Inc = "N.P" Or entre_Inc = "N.P." Then
+        If entre_Inc = "" Or entre_Inc = "0" Or entre_Inc = "-" Or entre_Inc = " - " Or entre_Inc = "M" Or entre_Inc = "N" Or entre_Inc = "N.P" Or entre_Inc = "N.P." Then
          Cells(cont, 25) = "SIN DATO"
          
         ElseIf entre_Inc = "N/P" Or entre_Inc = "N´P" Or entre_Inc = "NA" Or entre_Inc = "ND" Or entre_Inc = "NINGUNA" Or entre_Inc = "NINGUNO" Then
@@ -456,7 +427,7 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
     For cont = 2 To ultFila
         col_Inc = Cells(cont, 26)
         
-        If col_Inc = "" Or col_Inc = "0" Or col_Inc = "-" Or col_Inc = "M" Or col_Inc = "N" Or col_Inc = "N.P" Or col_Inc = "N.P." Then
+        If col_Inc = "" Or col_Inc = "0" Or col_Inc = "-" Or col_Inc = " - " Or col_Inc = "M" Or col_Inc = "N" Or col_Inc = "N.P" Or col_Inc = "N.P." Then
          Cells(cont, 26) = "SIN DATO"
          
         ElseIf col_Inc = "N/P" Or col_Inc = "N´P" Or col_Inc = "NA" Or col_Inc = "ND" Or col_Inc = "NINGUNA" Or col_Inc = "NINGUNO" Then
@@ -506,7 +477,7 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
     For cont = 2 To ultFila
         ref_Inc = Cells(cont, 27)
         
-        If ref_Inc = "" Or ref_Inc = "0" Or ref_Inc = "-" Or ref_Inc = "M" Or ref_Inc = "N" Or ref_Inc = "N.P" Or ref_Inc = "N.P." Then
+        If ref_Inc = "" Or ref_Inc = "0" Or ref_Inc = "-" Or ref_Inc = " - " Or ref_Inc = "M" Or ref_Inc = "N" Or ref_Inc = "N.P" Or ref_Inc = "N.P." Then
          Cells(cont, 27) = "SIN DATO"
          
         ElseIf ref_Inc = "N/P" Or ref_Inc = "N´P" Or ref_Inc = "NA" Or ref_Inc = "ND" Or ref_Inc = "NINGUNA" Or ref_Inc = "NINGUNO" Then
@@ -565,7 +536,7 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
     For cont = 2 To ultFila
         not_Inc = Cells(cont, 28)
         
-        If not_Inc = "" Or not_Inc = "0" Or not_Inc = "-" Or not_Inc = "M" Or not_Inc = "N" Or not_Inc = "N.P" Or not_Inc = "N.P." Then
+        If not_Inc = "" Or not_Inc = "0" Or not_Inc = "-" Or not_Inc = " - " Or not_Inc = "M" Or not_Inc = "N" Or not_Inc = "N.P" Or not_Inc = "N.P." Then
          Cells(cont, 28) = "SIN DATO"
          
         ElseIf not_Inc = "N/P" Or not_Inc = "N´P" Or not_Inc = "NA" Or not_Inc = "ND" Or not_Inc = "NINGUNA" Or not_Inc = "NINGUNO" Then
@@ -619,12 +590,23 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
         End If
     Next cont
 
+'H_RV
+
+	For cont = 2 To ultFila
+		h_Rv = Cells(cont, 33)
+		
+		If h_Rv = "" Then
+		 Cells(cont, 33) = "SIN DATO"
+		 
+		End If
+	Next cont
+
 'FORM_RV
 
 	For cont = 2 To ultFila
 		form_Rv = Cells(cont, 34)
 		
-		If form_Rv = "" Or form_Rv = "0" Or form_Rv = "-" Or form_Rv = "SIN INFORMACION" Then
+		If form_Rv = "" Or form_Rv = "0" Or form_Rv = "-" Or form_Rv = " - " Or form_Rv = "SIN INFORMACION" Then
 		 Cells(cont, 34) = "SIN DATO"
 		
 		End If
@@ -635,7 +617,7 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
     For cont = 2 To ultFila
         mod_V = Cells(cont, 35)
         
-        If mod_V = "" Or mod_V = "-" Then
+        If mod_V = "" Or mod_V = "-" Or mod_V = " - " Then
          Cells(cont, 35) = "0"
          
         End If
@@ -646,7 +628,7 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
     For cont = 2 To ultFila
         marc_V = Cells(cont, 36)
         
-        If marc_V = "" Or marc_V = "0" Or marc_V = "-" Or marc_V = "SIN INFORMACION" Then
+        If marc_V = "" Or marc_V = "0" Or marc_V = "-" Or marc_V = " - " Or marc_V = "SIN INFORMACION" Then
          Cells(cont, 36) = "SIN DATO"
          
         End If
@@ -657,7 +639,7 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
     For cont = 2 To ultFila
         submar_V = Cells(cont, 37)
         
-        If submar_V = "" Or submar_V = "0" Or submar_V = "-" Or submar_V = "SIN INFORMACION" Then
+        If submar_V = "" Or submar_V = "0" Or submar_V = "-" Or submar_V = " - " Or submar_V = "SIN INFORMACION" Then
          Cells(cont, 37) = "SIN DATO"
          
         End If
@@ -668,7 +650,7 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
     For cont = 2 To ultFila
         color_V = Cells(cont, 38)
         
-        If color_V = "" Or color_V = "0" Or color_V = "-" Or color_V = "SIN INFORMACION" Then
+        If color_V = "" Or color_V = "0" Or color_V = "-" Or color_V = " - " Or color_V = "SIN INFORMACION" Then
          Cells(cont, 38) = "SIN DATO"
          
         End If
@@ -679,12 +661,15 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
     For cont = 2 To ultFila
         placa_V = Cells(cont, 39)
         
-        If placa_V = "" Or placa_V = "0" Or placa_V = "-" Or placa_V = "00" Or placa_V = "000" Or placa_V = "0000" Then
+        If placa_V = "" Or placa_V = " " Or placa_V = "0" Or placa_V = "-" Or placa_V = " - " Or placa_V = "00" Or placa_V = "000" Or placa_V = "0000" Then
          Cells(cont, 39) = "SIN DATO"
         
-        ElseIf placa_V = "SD" Or placa_V = "S/D" Or placa_V = "SP" Or placa_V = "NP" Then
+        ElseIf placa_V = "SD" Or placa_V = "S/D" Or placa_V = "SP" Or placa_V = "NP" Or placa_V = "NA" Or placa_V = "SIN PLACA" Then
          Cells(cont, 39) = "SIN DATO"
-         
+
+        ElseIf placa_V = "SINPLACA" Or placa_V = "SIN NUMERO" Or placa_V = "SINNUM" Or placa_V = "SINNUME" Then
+         Cells(cont, 39) = "SIN DATO" 
+        
         End If
     Next cont
 
@@ -693,10 +678,10 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
     For cont = 2 To ultFila
         laminaV_ = Cells(cont, 40)
         
-        If laminaV_ = "" Or laminaV_ = "0" Or laminaV_ = "-" Or laminaV_ = "SIN ESPECIFICAR" Or laminaV_ = "SINESPECIFICAR" Then
+        If laminaV_ = "" Or laminaV_ = "0" Or laminaV_ = "-" Or laminaV_ = " - " Or laminaV_ = "SIN ESPECIFICAR" Or laminaV_ = "SINESPECIFICAR" Then
          Cells(cont, 40) = "SIN DATO"
          
-        ElseIf laminaV_ = "NP" Or laminaV_ = "SD" Or laminaV_ = "SP" Then
+        ElseIf laminaV_ = "NP" Or laminaV_ = "SD" Or laminaV_ = "SP" Or laminaV_ = "," Or laminaV_ = " , " Then
          Cells(cont, 40) = "SIN DATO"
          
         End If
@@ -707,7 +692,7 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
     For cont = 2 To ultFila
         notaV_ = Cells(cont, 41)
         
-        If notaV_ = "" Or notaV_ = "0" Or notaV_ = "-" Or notaV_ = "NP" Or notaV_ = "NO PROPORCIONA" Then
+        If notaV_ = "" Or notaV_ = "0" Or notaV_ = "-" Or notaV_ = " - " Or notaV_ = "NP" Or notaV_ = "NO PROPORCIONA" Then
          Cells(cont, 41) = "SIN DATO"
          
         End If
@@ -774,18 +759,19 @@ For cont = 2 To ultFila
     .Font.Size = 10
     .HorizontalAlignment = xlCenter
     .VerticalAlignment = xlCenter
-    .WrapText = False
     .Orientation = 0
-    .AddIndent = False
     .IndentLevel = 0
-    .ShrinkToFit = False
     .ReadingOrder = xlContext
-    .MergeCells = False
 
     End With
-    
+
+'Esta línea transforma la columna PLACA_V "AM" a texto
+'Para quitar las celdas que están en formato científico
+
+Range("AM2", Range("AM2").End(xlDown)).NumberFormat = "@"
+Range("O2", Range("O2").End(xlDown)).NumberFormat = "m/d/yyyy"
+Range("AC2", Range("AC2").End(xlDown)).NumberFormat = "m/d/yyyy"
+
     Range("A2").Select
-
-
 
 End Sub
