@@ -2,15 +2,15 @@ Option Explicit
 
 Sub emmaPoderes()
 
-Application.ScreenUpdating = True
+Application.ScreenUpdating = False
 
 Dim corpor As String, cod_Cierr As String, hms As String, call_Inc As String
 Dim zona As String, reg_Op As String, modo_Rec As String, dir_Inc As String
 Dim entre_Inc As String, col_Inc As String, ref_Inc As String, not_Inc As String
 Dim fec_Rv As String, aaaa_Rv As String, mm_Rv As String, dd_Rv As String
 Dim h_Rv As String, form_Rv As String, mod_V As String, marc_V As String
-Dim submar_V As String, color_V As String, placa_V As String, laminaV_ As String
-Dim notaV_ As String, hom_Tot As String, hom_Hombr As String, hom_Muj As String
+Dim submar_V As String, color_V As String, placa_V As String, laminav_ As String
+Dim notav_ As String, hom_Tot As String, hom_Hombr As String, hom_Muj As String
 Dim hom_Desc As String, arma As String
 Dim ultFila As Long
 Dim cont As Long
@@ -22,17 +22,8 @@ Dim celda As Range
 'Dejando solamente el primer dato que es útil para la base de datos
 'Que se actualiza en Postgres constantemente
 
-'Inicia la limpeza con la función ESPACIOS seleccionando todo el espacio de trabajo
-
-Selection.CurrentRegion.Select
-
-For Each celda In Selection
-celda.Value = LTrim(celda.Value)
-celda.Value = RTrim(celda.Value)
-Next
-
 'Columna MOD_V
-	
+    
     Columns("AJ:AS").Insert Shift:=xlToRight
     Range("AI2", Range("AI1048576").End(xlUp)).Select
     Selection.TextToColumns Destination:=Range("AI2"), DataType:=xlDelimited, _
@@ -248,29 +239,29 @@ Next
 'En esta sección se van a quitar texto y números no deseados de los rangos
 '"J:N", "W:AB", "AG" y de "AI:AO"
 
-ultFila = Range("A" & Rows.Count).End(xlUp).Row
+ultFila = Range("A" & rows.Count).End(xlUp).Row
     
 'ZONA
-	
-	For cont = 2 To ultFila
-		zona = Cells(cont, 10)
-		
-		If zona = "" Then
-		 Cells(cont, 10) = "SIN DATO"
-		 
-		End If
-	Next cont
+    
+    For cont = 2 To ultFila
+        zona = Cells(cont, 10)
+        
+        If zona = "" Then
+         Cells(cont, 10) = "SIN DATO"
+         
+        End If
+    Next cont
 
 'REG_OP
 
-	For cont = 2 To ultFila
-		reg_Op = Cells(cont, 11)
-		
-		If reg_Op = "" Then
-		 Cells(cont, 11) = "SIN DATO"
-		
-		End If
-	Next cont
+    For cont = 2 To ultFila
+        reg_Op = Cells(cont, 11)
+        
+        If reg_Op = "" Then
+         Cells(cont, 11) = "SIN DATO"
+        
+        End If
+    Next cont
 
 'CORPOR
 
@@ -296,25 +287,25 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
     
 'MODO_REC
 
-	For cont = 2 To ultFila
-		modo_Rec = Cells(cont, 14)
-		
-		If modo_Rec = "" Then
-		 Cells(cont, 14) = "SIN DATO"
-		 
-		End If
-	Next cont
+    For cont = 2 To ultFila
+        modo_Rec = Cells(cont, 14)
+        
+        If modo_Rec = "" Then
+         Cells(cont, 14) = "SIN DATO"
+         
+        End If
+    Next cont
 
 'DIR_INC
 
-	For cont = 2 To ultFila
-		dir_Inc = Cells(cont, 23)
-		
-		If dir_Inc = "" Then
-		 Cells(cont, 23) = "SIN DATO"
-		
-		End If
-	Next cont
+    For cont = 2 To ultFila
+        dir_Inc = Cells(cont, 23)
+        
+        If dir_Inc = "" Then
+         Cells(cont, 23) = "SIN DATO"
+        
+        End If
+    Next cont
 
 'CALL_INC
 
@@ -363,7 +354,7 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
         ElseIf call_Inc = "SININFORMACION" Or call_Inc = "SINNOMBRE" Then
          Cells(cont, 24) = "SIN DATO"
          
-        ElseIf call_Inc = "SN" Or call_Inc = "SN." Or call_Inc = "SNI CALLE" Or call_Inc = "SP" Or call_Inc = "SP." Then
+        ElseIf call_Inc = "SN" Or call_Inc = "SN." Or call_Inc = "SNI CALLE" Or call_Inc = "SP" Or call_Inc = "SP." Or call_Inc = " SIN ESPECIFICAR" Then
          Cells(cont, 24) = "SIN DATO"
                  
         End If
@@ -416,7 +407,7 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
         ElseIf entre_Inc = "SININFORMACION" Or entre_Inc = "SINNOMBRE" Then
          Cells(cont, 25) = "SIN DATO"
          
-        ElseIf entre_Inc = "SN" Or entre_Inc = "SN." Or entre_Inc = "SNI CALLE" Or entre_Inc = "SP" Or entre_Inc = "SP." Then
+        ElseIf entre_Inc = "SN" Or entre_Inc = "SN." Or entre_Inc = "SNI CALLE" Or entre_Inc = "SP" Or entre_Inc = "SP." Or entre_Inc = " SIN ESPECIFICAR" Then
          Cells(cont, 25) = "SIN DATO"
                  
         End If
@@ -466,7 +457,7 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
         ElseIf col_Inc = "SININFORMACION" Or col_Inc = "SINNOMBRE" Or col_Inc = "SN" Or col_Inc = "SN." Then
          Cells(cont, 26) = "SIN DATO"
     
-        ElseIf col_Inc = "SP" Or col_Inc = "SP." Then
+        ElseIf col_Inc = "SP" Or col_Inc = "SP." Or col_Inc = " SIN ESPECIFICAR" Then
          Cells(cont, 26) = "SIN DATO"
         
         End If
@@ -525,7 +516,10 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
         ElseIf ref_Inc = "SINPLACAS" Or ref_Inc = "SINREFERENCIA" Or ref_Inc = "SINREFERENCIAS" Or ref_Inc = "SN" Or ref_Inc = "SN." Then
          Cells(cont, 27) = "SIN DATO"
          
-        ElseIf ref_Inc = "SNI CALLE" Or ref_Inc = "SP" Or ref_Inc = "SP." Or ref_Inc = "N P" Or ref_Inc = "NNP" Then
+        ElseIf ref_Inc = "SNI CALLE" Or ref_Inc = "SP" Or ref_Inc = "SP." Or ref_Inc = "N P" Or ref_Inc = "NNP" Or ref_Inc = " SIN ESPECIFICAR" Then
+         Cells(cont, 27) = "SIN DATO"
+
+        ElseIf ref_Inc = "NADA" Or ref_Inc = "NO INDICO" Or ref_Inc = "NP -REFERENCIA" Or ref_Inc = "." Then
          Cells(cont, 27) = "SIN DATO"
         
         End If
@@ -584,7 +578,7 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
         ElseIf not_Inc = "SINPLACAS" Or not_Inc = "SINREFERENCIA" Or not_Inc = "SINREFERENCIAS" Or not_Inc = "SN" Or not_Inc = "SN." Then
          Cells(cont, 28) = "SIN DATO"
          
-        ElseIf not_Inc = "SNI CALLE" Or not_Inc = "SP" Or not_Inc = "SP." Then
+        ElseIf not_Inc = "SNI CALLE" Or not_Inc = "SP" Or not_Inc = "SP." Or not_Inc = " SIN ESPECIFICAR" Then
          Cells(cont, 28) = "SIN DATO"
         
         End If
@@ -592,25 +586,25 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
 
 'H_RV
 
-	For cont = 2 To ultFila
-		h_Rv = Cells(cont, 33)
-		
-		If h_Rv = "" Then
-		 Cells(cont, 33) = "SIN DATO"
-		 
-		End If
-	Next cont
+    For cont = 2 To ultFila
+        h_Rv = Cells(cont, 33)
+        
+        If h_Rv = "" Then
+         Cells(cont, 33) = "SIN DATO"
+         
+        End If
+    Next cont
 
 'FORM_RV
 
-	For cont = 2 To ultFila
-		form_Rv = Cells(cont, 34)
-		
-		If form_Rv = "" Or form_Rv = "0" Or form_Rv = "-" Or form_Rv = " - " Or form_Rv = "SIN INFORMACION" Then
-		 Cells(cont, 34) = "SIN DATO"
-		
-		End If
-	Next cont	
+    For cont = 2 To ultFila
+        form_Rv = Cells(cont, 34)
+        
+        If form_Rv = "" Or form_Rv = "0" Or form_Rv = "-" Or form_Rv = " - " Or form_Rv = "SIN INFORMACION" Then
+         Cells(cont, 34) = "SIN DATO"
+        
+        End If
+    Next cont
 
 'MOD_V
        
@@ -628,7 +622,7 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
     For cont = 2 To ultFila
         marc_V = Cells(cont, 36)
         
-        If marc_V = "" Or marc_V = "0" Or marc_V = "-" Or marc_V = " - " Or marc_V = "SIN INFORMACION" Then
+        If marc_V = "" Or marc_V = "0" Or marc_V = "-" Or marc_V = " - " Or marc_V = "SIN INFORMACION" Or marc_V = " SIN INFORMACION " Then
          Cells(cont, 36) = "SIN DATO"
          
         End If
@@ -639,7 +633,7 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
     For cont = 2 To ultFila
         submar_V = Cells(cont, 37)
         
-        If submar_V = "" Or submar_V = "0" Or submar_V = "-" Or submar_V = " - " Or submar_V = "SIN INFORMACION" Then
+        If submar_V = "" Or submar_V = "0" Or submar_V = "-" Or submar_V = " - " Or submar_V = "SIN INFORMACION" Or submar_V = " SIN INFORMACION " Then
          Cells(cont, 37) = "SIN DATO"
          
         End If
@@ -650,7 +644,7 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
     For cont = 2 To ultFila
         color_V = Cells(cont, 38)
         
-        If color_V = "" Or color_V = "0" Or color_V = "-" Or color_V = " - " Or color_V = "SIN INFORMACION" Then
+        If color_V = "" Or color_V = "0" Or color_V = "-" Or color_V = " - " Or color_V = "SIN INFORMACION" Or color_V = " SIN INFORMACION " Then
          Cells(cont, 38) = "SIN DATO"
          
         End If
@@ -667,8 +661,11 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
         ElseIf placa_V = "SD" Or placa_V = "S/D" Or placa_V = "SP" Or placa_V = "NP" Or placa_V = "NA" Or placa_V = "SIN PLACA" Then
          Cells(cont, 39) = "SIN DATO"
 
-        ElseIf placa_V = "SINPLACA" Or placa_V = "SIN NUMERO" Or placa_V = "SINNUM" Or placa_V = "SINNUME" Then
-         Cells(cont, 39) = "SIN DATO" 
+        ElseIf placa_V = "SINPLACA" Or placa_V = "SIN NUMERO" Or placa_V = "SINNUM" Or placa_V = "SINNUME" Or placa_V = " SIN INFORMACION " Then
+         Cells(cont, 39) = "SIN DATO"
+
+        ElseIf placa_V = " NP " Or placa_V = "SINDATO" Or placa_V = "SIN" Or placa_V = "SINPLAC" Or placa_V = " SIN " Or placa_V = "NT" Then
+         Cells(cont, 39) = "SIN DATO"
         
         End If
     Next cont
@@ -676,12 +673,12 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
 'LAMINAV_
 
     For cont = 2 To ultFila
-        laminaV_ = Cells(cont, 40)
+        laminav_ = Cells(cont, 40)
         
-        If laminaV_ = "" Or laminaV_ = "0" Or laminaV_ = "-" Or laminaV_ = " - " Or laminaV_ = "SIN ESPECIFICAR" Or laminaV_ = "SINESPECIFICAR" Then
+        If laminav_ = "" Or laminav_ = "0" Or laminav_ = "-" Or laminav_ = " - " Or laminav_ = "SIN ESPECIFICAR" Or laminav_ = "SINESPECIFICAR" Then
          Cells(cont, 40) = "SIN DATO"
          
-        ElseIf laminaV_ = "NP" Or laminaV_ = "SD" Or laminaV_ = "SP" Or laminaV_ = "," Or laminaV_ = " , " Then
+        ElseIf laminav_ = "NP" Or laminav_ = "SD" Or laminav_ = "SP" Or laminav_ = "," Or laminav_ = " , " Or laminav_ = " SIN ESPECIFICAR" Or laminav_ = " SIN INFORMACION " Then
          Cells(cont, 40) = "SIN DATO"
          
         End If
@@ -690,9 +687,12 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
 'NOTAV_
 
     For cont = 2 To ultFila
-        notaV_ = Cells(cont, 41)
+        notav_ = Cells(cont, 41)
         
-        If notaV_ = "" Or notaV_ = "0" Or notaV_ = "-" Or notaV_ = " - " Or notaV_ = "NP" Or notaV_ = "NO PROPORCIONA" Then
+        If notav_ = "" Or notav_ = "0" Or notav_ = "-" Or notav_ = " - " Or notav_ = "NP" Or notav_ = "NO PROPORCIONA" Or notav_ = " SIN INFORMACION " Then
+         Cells(cont, 41) = "SIN DATO"
+
+        ElseIf notav_ = "NINGUNA" Or notav_ = "NINGUNO" Or notav_ = "NINGUN A" Or notav_ = "SIN SEÑAS PARTICULARES" Or notav_ = "SIN SEÑAS" Then
          Cells(cont, 41) = "SIN DATO"
          
         End If
@@ -771,6 +771,9 @@ For cont = 2 To ultFila
 Range("AM2", Range("AM2").End(xlDown)).NumberFormat = "@"
 Range("O2", Range("O2").End(xlDown)).NumberFormat = "m/d/yyyy"
 Range("AC2", Range("AC2").End(xlDown)).NumberFormat = "m/d/yyyy"
+
+Application.ScreenUpdating = True
+
 
     Range("A2").Select
 
