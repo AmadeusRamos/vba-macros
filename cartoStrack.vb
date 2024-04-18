@@ -4,20 +4,20 @@ Sub cartoStrack()
 
 'Limpieza de Strack
 'Esta acción elimina los bordes de las celdas
-'Tambien elimina saltos de línea, acentos y diéresis
+'Tambien elimina saltos de línea y acentos
+'Es importante contar 43 columnas, no más no menos
 
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 
-Dim Rng As Range
+Dim rng As Range
 Dim WorkRng As Range
 Dim celda As Range
-Dim A As Range, B As Range, c As Range, d As Range, e As Range, f As Range
+Dim a As Range, b As Range, c As Range, d As Range, e As Range, f As Range
 Dim g As Range, h As Range, i As Range, j As Range, k As Range, l As Range
 Dim m As Range, n As Range, o As Range, p As Range, q As Range, r As Range
 Dim s As Range, t As Range, u As Range, v As Range, w As Range, x As Range
 Dim aa As Range, bb As Range, cc As Range, dd As Range, ee As Range
-
 
 Selection.CurrentRegion.Select
 
@@ -38,7 +38,11 @@ Selection.CurrentRegion.Select
     .Replace What:="í", Replacement:="i", LookAt:=xlPart, SearchOrder:=xlByColumns
     .Replace What:="ó", Replacement:="o", LookAt:=xlPart, SearchOrder:=xlByColumns
     .Replace What:="ú", Replacement:="u", LookAt:=xlPart, SearchOrder:=xlByColumns
-    .Replace What:="ü", Replacement:="u", LookAt:=xlPart, SearchOrder:=xlByColumns
+    .Replace What:="à", Replacement:="a", LookAt:=xlPart, SearchOrder:=xlByColumns
+    .Replace What:="è", Replacement:="e", LookAt:=xlPart, SearchOrder:=xlByColumns
+    .Replace What:="ì", Replacement:="i", LookAt:=xlPart, SearchOrder:=xlByColumns
+    .Replace What:="ò", Replacement:="o", LookAt:=xlPart, SearchOrder:=xlByColumns
+    .Replace What:="ù", Replacement:="u", LookAt:=xlPart, SearchOrder:=xlByColumns
     .Replace What:="  ,  , ", Replacement:=", ", LookAt:=xlPart, SearchOrder:=xlByColumns
     .Replace What:=" ,  , ", Replacement:=", ", LookAt:=xlPart, SearchOrder:=xlByColumns
     .Replace What:=" ,, ", Replacement:=", ", LookAt:=xlPart, SearchOrder:=xlByColumns
@@ -53,7 +57,7 @@ Selection.CurrentRegion.Select
     .Replace What:="//", Replacement:="/", LookAt:=xlPart, SearchOrder:=xlByColumns
 
     End With
-
+  
 'Únicamente aplicar a las columnas "V:AO"
     Range("V2", Range("V2").End(xlDown).End(xlToRight)).Select
 
@@ -110,8 +114,8 @@ Selection.CurrentRegion.Select
     On Error Resume Next
     Selection.CurrentRegion.Select
     Set WorkRng = Application.Selection
-    For Each Rng In WorkRng
-        Rng.Value = VBA.UCase(Rng.Value)
+    For Each rng In WorkRng
+        rng.Value = VBA.UCase(rng.Value)
     Next
 
 'Se eliminan los guiones medios del rango AD:AF y AH:AO
@@ -126,8 +130,8 @@ Range("AD2", Range("AD2").End(xlDown).End(xlToRight)).Select
 
 'Quita los espacios de los rangos D:N, V:AB Y AJ:AO
 'Rango D:N
-    Set A = Range("D2", Range("D2").End(xlDown))
-    Set B = Range("E2", Range("E2").End(xlDown))
+    Set a = Range("D2", Range("D2").End(xlDown))
+    Set b = Range("E2", Range("E2").End(xlDown))
     Set c = Range("F2", Range("F2").End(xlDown))
     Set d = Range("G2", Range("G2").End(xlDown))
     Set e = Range("H2", Range("H2").End(xlDown))
@@ -153,7 +157,7 @@ Range("AD2", Range("AD2").End(xlDown).End(xlToRight)).Select
     Set w = Range("AN2", Range("AN2").End(xlDown))
     Set x = Range("AO2", Range("AO2").End(xlDown))
     
-    Union(A, B, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x).Select
+    Union(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x).Select
 
     For Each celda In Selection
     celda.Value = WorksheetFunction.trim(celda.Value)
@@ -171,9 +175,40 @@ Range("AC2", Range("AC2").End(xlDown)).NumberFormat = "m/d/yyyy"
     Selection.TextToColumns Destination:=Range("AC1"), DataType:=xlFixedWidth, _
         fieldinfo:=Array(Array(0, 4), Array(10, 1)), TrailingMinusNumbers:=True
 
-Range("A2").Select
-
+'Esta instrucción elimina los objetos antes creados para liberar memoria
+    Set aa = Nothing
+    Set bb = Nothing
+    Set cc = Nothing
+    Set dd = Nothing
+    Set ee = Nothing
+    Set a = Nothing
+    Set b = Nothing
+    Set c = Nothing
+    Set d = Nothing
+    Set e = Nothing
+    Set f = Nothing
+    Set g = Nothing
+    Set h = Nothing
+    Set i = Nothing
+    Set j = Nothing
+    Set k = Nothing
+    Set l = Nothing
+    Set m = Nothing
+    Set n = Nothing
+    Set o = Nothing
+    Set p = Nothing
+    Set q = Nothing
+    Set r = Nothing
+    Set s = Nothing
+    Set t = Nothing
+    Set u = Nothing
+    Set v = Nothing
+    Set w = Nothing
+    Set x = Nothing
+    
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
+  
+Range("A2").Select
 
 End Sub
