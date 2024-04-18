@@ -1,6 +1,7 @@
 Sub accidentes()
 'Esta macro realiza la division de las coordenadas, ordena de menor a mayor la numeracion de los folios georreferenciados, copiando los datos de municipio, colonia, clave punteo
 'analista, latitud y longitud de la hoja llamada coordenadas y pega esos datos en la hoja llamada accidentes lo que ahorra tiempo.
+'Esta macro solamente sirve para los archivos de Accidentes.
 
     Dim celda As Range
     
