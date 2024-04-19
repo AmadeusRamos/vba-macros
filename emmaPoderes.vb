@@ -1,6 +1,9 @@
 Option Explicit
 
 Sub emmaPoderes()
+'Esta macro realiza la limpieza de signos de puntuación, espacios, saltos de página, para la entrega y posterior actualización en PostgreSQL.
+'Además se utilizan loops para poder completar información en celdas vacías.
+'Una vez que finaliza los cambios y su debida validación, se puede proceder a la entrega de los datos.
 
 Application.ScreenUpdating = False
 
