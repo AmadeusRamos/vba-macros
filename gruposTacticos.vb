@@ -1,4 +1,9 @@
 Sub gposTacticos()
+'Macro para ordenar los datos de los veinte municipios propuestos por el área de Grupos Tácticos
+'Esta macro ordena de mayor a menor el conteo de la incidencia por colonia en cada municipio
+'De estos datos se obtienen una serie de relojes aorísticos o matrices de la densidad delictiva
+
+Application.ScreenUpdating = False
 
     'CALIMAYA
     Range("A3").Select
@@ -23,12 +28,12 @@ Sub gposTacticos()
     Range(Selection, Selection.End(xlToRight)).Select
     Range(Selection, Selection.End(xlDown)).Select
     ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E50:E179") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E50:E178") _
         , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B50:B179") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B50:B178") _
         , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
     With ActiveWorkbook.Worksheets("Rangos").Sort
-        .SetRange Range("A49:E179")
+        .SetRange Range("A49:E178")
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -37,16 +42,16 @@ Sub gposTacticos()
     End With
     
     'CHAPULTEPEC
-    Range("A182").Select
+    Range("A181").Select
     Range(Selection, Selection.End(xlToRight)).Select
     Range(Selection, Selection.End(xlDown)).Select
     ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E183:E203") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E182:E201") _
         , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B183:B203") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B182:B201") _
         , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
     With ActiveWorkbook.Worksheets("Rangos").Sort
-        .SetRange Range("A182:E203")
+        .SetRange Range("A181:E201")
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -55,16 +60,16 @@ Sub gposTacticos()
     End With
     
     'CHIMALHUACAN
-    Range("A206").Select
+    Range("A204").Select
     Range(Selection, Selection.End(xlToRight)).Select
     Range(Selection, Selection.End(xlDown)).Select
     ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E207:E322") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E205:E320") _
         , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B207:B322") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B205:B320") _
         , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
     With ActiveWorkbook.Worksheets("Rangos").Sort
-        .SetRange Range("A206:E322")
+        .SetRange Range("A204:E320")
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -73,16 +78,16 @@ Sub gposTacticos()
     End With
     
     'CUAUTITLAN IZCALLI
-    Range("A325").Select
+    Range("A323").Select
     Range(Selection, Selection.End(xlToRight)).Select
     Range(Selection, Selection.End(xlDown)).Select
     ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E326:E520") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E324:E518") _
         , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B326:B520") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B324:B518") _
         , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
     With ActiveWorkbook.Worksheets("Rangos").Sort
-        .SetRange Range("A325:E520")
+        .SetRange Range("A323:E518")
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -91,16 +96,16 @@ Sub gposTacticos()
     End With
     
     'ECATEPEC
-    Range("A523").Select
+    Range("A521").Select
     Range(Selection, Selection.End(xlToRight)).Select
     Range(Selection, Selection.End(xlDown)).Select
     ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E524:E1003") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E522:E1001") _
         , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B524:B1003") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B522:B1001") _
         , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
     With ActiveWorkbook.Worksheets("Rangos").Sort
-        .SetRange Range("A523:E1003")
+        .SetRange Range("A521:E1001")
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -109,16 +114,16 @@ Sub gposTacticos()
     End With
     
     'LA PAZ
-    Range("A1006").Select
+    Range("A1004").Select
     Range(Selection, Selection.End(xlToRight)).Select
     Range(Selection, Selection.End(xlDown)).Select
     ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E1007:E1086") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E1005:E1084") _
         , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B1007:B1086") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B1005:B1084") _
         , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
     With ActiveWorkbook.Worksheets("Rangos").Sort
-        .SetRange Range("A1006:E1086")
+        .SetRange Range("A1004:E1084")
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -127,16 +132,16 @@ Sub gposTacticos()
     End With
     
     'LERMA
-    Range("A1089").Select
+    Range("A1087").Select
     Range(Selection, Selection.End(xlToRight)).Select
     Range(Selection, Selection.End(xlDown)).Select
     ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E1090:E1177") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E1088:E1175") _
         , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B1090:B1177") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B1088:B1175") _
         , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
     With ActiveWorkbook.Worksheets("Rangos").Sort
-        .SetRange Range("A1089:E1177")
+        .SetRange Range("A1087:E1175")
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -145,16 +150,16 @@ Sub gposTacticos()
     End With
     
     'METEPEC
-    Range("A1180").Select
+    Range("A1178").Select
     Range(Selection, Selection.End(xlToRight)).Select
     Range(Selection, Selection.End(xlDown)).Select
     ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E1181:E1633") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E1179:E1631") _
         , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B1181:B1633") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B1179:B1631") _
         , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
     With ActiveWorkbook.Worksheets("Rangos").Sort
-        .SetRange Range("A1180:E1633")
+        .SetRange Range("A1178:E1631")
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -163,16 +168,16 @@ Sub gposTacticos()
     End With
     
     'NAUCALPAN
-    Range("A1636").Select
+    Range("A1634").Select
     Range(Selection, Selection.End(xlToRight)).Select
     Range(Selection, Selection.End(xlDown)).Select
     ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E1637:E1991") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E1635:E1990") _
         , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B1637:B1991") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B1635:B1990") _
         , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
     With ActiveWorkbook.Worksheets("Rangos").Sort
-        .SetRange Range("A1636:E1991")
+        .SetRange Range("A1634:E1990")
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -181,16 +186,16 @@ Sub gposTacticos()
     End With
     
     'NEZAHUALCOYOTL
-    Range("A1994").Select
+    Range("A1993").Select
     Range(Selection, Selection.End(xlToRight)).Select
     Range(Selection, Selection.End(xlDown)).Select
     ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E1995:E2081") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E1994:E2082") _
         , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B1995:B2081") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B1994:B2082") _
         , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
     With ActiveWorkbook.Worksheets("Rangos").Sort
-        .SetRange Range("A1994:E2081")
+        .SetRange Range("A1993:E2082")
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -199,16 +204,16 @@ Sub gposTacticos()
     End With
     
     'OTUMBA
-    Range("A2084").Select
+    Range("A2085").Select
     Range(Selection, Selection.End(xlToRight)).Select
     Range(Selection, Selection.End(xlDown)).Select
     ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E2085:E2136") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E2086:E2137") _
         , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B2085:B2136") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B2086:B2137") _
         , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
     With ActiveWorkbook.Worksheets("Rangos").Sort
-        .SetRange Range("A2084:E2136")
+        .SetRange Range("A2085:E2137")
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -217,16 +222,16 @@ Sub gposTacticos()
     End With
     
     'OTZOLOTEPEC
-    Range("A2139").Select
+    Range("A2140").Select
     Range(Selection, Selection.End(xlToRight)).Select
     Range(Selection, Selection.End(xlDown)).Select
     ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E2140:E2183") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E2141:E2184") _
         , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B2140:B2183") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B2141:B2184") _
         , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
     With ActiveWorkbook.Worksheets("Rangos").Sort
-        .SetRange Range("A2139:E2183")
+        .SetRange Range("A2140:E2184")
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -235,16 +240,16 @@ Sub gposTacticos()
     End With
     
     'SAN MATEO ATENCO
-    Range("A2186").Select
+    Range("A2187").Select
     Range(Selection, Selection.End(xlToRight)).Select
     Range(Selection, Selection.End(xlDown)).Select
     ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E2187:E2252") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E2188:E2254") _
         , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B2187:B2252") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B2188:B2254") _
         , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
     With ActiveWorkbook.Worksheets("Rangos").Sort
-        .SetRange Range("A2186:E2252")
+        .SetRange Range("A2187:E2254")
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -253,16 +258,16 @@ Sub gposTacticos()
     End With
     
     'TEXCOCO
-    Range("A2255").Select
+    Range("A2257").Select
     Range(Selection, Selection.End(xlToRight)).Select
     Range(Selection, Selection.End(xlDown)).Select
     ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E2256:E2499") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E2258:E2501") _
         , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B2256:B2499") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B2258:B2501") _
         , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
     With ActiveWorkbook.Worksheets("Rangos").Sort
-        .SetRange Range("A2255:E2499")
+        .SetRange Range("A2257:E2501")
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -271,16 +276,16 @@ Sub gposTacticos()
     End With
     
     'TOLUCA
-    Range("A2502").Select
+    Range("A2504").Select
     Range(Selection, Selection.End(xlToRight)).Select
     Range(Selection, Selection.End(xlDown)).Select
     ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E2503:E2995") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E2505:E2996") _
         , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B2503:B2995") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B2505:B2996") _
         , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
     With ActiveWorkbook.Worksheets("Rangos").Sort
-        .SetRange Range("A2502:E2995")
+        .SetRange Range("A2504:E2996")
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -289,16 +294,16 @@ Sub gposTacticos()
     End With
     
     'TULTITLAN
-    Range("A2998").Select
+    Range("A2999").Select
     Range(Selection, Selection.End(xlToRight)).Select
     Range(Selection, Selection.End(xlDown)).Select
     ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E2999:E3188") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E3000:E3189") _
         , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B2999:B3188") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B3000:B3189") _
         , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
     With ActiveWorkbook.Worksheets("Rangos").Sort
-        .SetRange Range("A2998:E3188")
+        .SetRange Range("A2999:E3189")
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -307,16 +312,16 @@ Sub gposTacticos()
     End With
     
     'VALLE DE CHALCO
-    Range("A3191").Select
+    Range("A3192").Select
     Range(Selection, Selection.End(xlToRight)).Select
     Range(Selection, Selection.End(xlDown)).Select
     ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E3192:E3229") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E3193:E3230") _
         , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B3192:B3229") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B3193:B3230") _
         , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
     With ActiveWorkbook.Worksheets("Rangos").Sort
-        .SetRange Range("A3191:E3229")
+        .SetRange Range("A3192:E3230")
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -325,16 +330,16 @@ Sub gposTacticos()
     End With
     
     'XONACATLAN
-    Range("A3232").Select
+    Range("A3233").Select
     Range(Selection, Selection.End(xlToRight)).Select
     Range(Selection, Selection.End(xlDown)).Select
     ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E3233:E3278") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E3234:E3279") _
         , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B3233:B3278") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B3234:B3279") _
         , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
     With ActiveWorkbook.Worksheets("Rangos").Sort
-        .SetRange Range("A3232:E3278")
+        .SetRange Range("A3233:E3279")
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -343,16 +348,16 @@ Sub gposTacticos()
     End With
     
     'ZINACANTEPEC
-    Range("A3281").Select
+    Range("A3282").Select
     Range(Selection, Selection.End(xlToRight)).Select
     Range(Selection, Selection.End(xlDown)).Select
     ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E3282:E3367") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E3283:E3368") _
         , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B3282:B3367") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B3283:B3368") _
         , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
     With ActiveWorkbook.Worksheets("Rangos").Sort
-        .SetRange Range("A3281:E3367")
+        .SetRange Range("A3282:E3368")
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -361,4 +366,6 @@ Sub gposTacticos()
     End With
     
     Range("B2").Select
+    
+Application.ScreenUpdating = True
 End Sub
