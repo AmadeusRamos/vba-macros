@@ -4,7 +4,7 @@ Sub cartoStrack()
 
 'Limpieza de Strack
 'Esta acción elimina los bordes de las celdas
-'Tambien elimina saltos de línea y acentos
+'Tambien elimina saltos de página y acentos
 'Es importante contar 43 columnas, no más no menos
 
 Application.ScreenUpdating = False
@@ -106,8 +106,6 @@ Selection.CurrentRegion.Select
     .Replace What:=",", Replacement:="", LookAt:=xlPart, SearchOrder:=xlByColumns
     
     End With
-
-
 
 'Convierte en mayúsculas todo el rango en uso
     
