@@ -215,19 +215,6 @@ Next celda
 
 End Sub
 
-Sub eliminarFilas()
-         
-'Esta macro elimina toda la fila
-'De las celdas seleccionadas
-         
-Application.ScreenUpdating = False
-         
-   Selection.EntireRow.Delete
-   
-Application.ScreenUpdating = True
-    
-End Sub
-
 Sub seleccionarColumna()
 
     ' Esta Macro solamente acepta datos contiguos, se detiene en celdas en blanco
