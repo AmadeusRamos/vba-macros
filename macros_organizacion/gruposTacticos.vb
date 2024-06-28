@@ -365,6 +365,24 @@ Application.ScreenUpdating = False
         .Apply
     End With
     
+    'MEXICALTZINGO
+    Range("A3371").Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Range(Selection, Selection.End(xlDown)).Select
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E3372:E3393") _
+        , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B3372:B3393") _
+        , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
+    With ActiveWorkbook.Worksheets("Rangos").Sort
+        .SetRange Range("A3371:E3393")
+        .Header = xlYes
+        .MatchCase = False
+        .Orientation = xlTopToBottom
+        .SortMethod = xlPinYin
+        .Apply
+    End With
+
     Range("B2").Select
     
 Application.ScreenUpdating = True
