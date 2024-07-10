@@ -312,7 +312,7 @@ j = 2
     'Numeración consecutiva de la columna ID
     For m = 2 To Cells(Rows.Count, "B").End(xlUp).Row
         If Cells(m, "B").Value <> "" Then
-         Cells(m, "A").Value = m - 1
+            Cells(m, "A").Value = m - 1
         End If
     Next m
     
@@ -369,10 +369,10 @@ j = 2
     'Numeración consecutiva de la columna ID
     For m = 2 To Cells(Rows.Count, "B").End(xlUp).Row
         If Cells(m, "B").Value <> "" Then
-         Cells(m, "A").Value = m - 1
+            Cells(m, "A").Value = m - 1
         End If
     Next m
-  
+
     Application.ScreenUpdating = True
     Application.CutCopyMode = False
     
@@ -426,10 +426,10 @@ j = 2
     'Numeración consecutiva de la columna ID
     For m = 2 To Cells(Rows.Count, "B").End(xlUp).Row
         If Cells(m, "B").Value <> "" Then
-         Cells(m, "A").Value = m - 1
+            Cells(m, "A").Value = m - 1
         End If
     Next m
- 
+
     Application.ScreenUpdating = True
     Application.CutCopyMode = False
     

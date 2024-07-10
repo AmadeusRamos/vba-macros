@@ -200,7 +200,7 @@ Dim celda As Range
     Range("T2").Select
     Range(Selection, Selection.End(xlDown)).Copy Destination:=Range("U2")
     Range("U2", Range("U2").End(xlDown)).Select
-               
+
     With Selection
 
         .FormulaR1C1 = "=TEXT(RC[-1],""hh:mm:ss"")"
@@ -249,8 +249,8 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
         zona = Cells(cont, 10)
         
         If zona = "" Then
-         Cells(cont, 10) = "SIN DATO"
-         
+            Cells(cont, 10) = "SIN DATO"
+
         End If
     Next cont
 
@@ -260,7 +260,7 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
         reg_Op = Cells(cont, 11)
         
         If reg_Op = "" Then
-         Cells(cont, 11) = "SIN DATO"
+            Cells(cont, 11) = "SIN DATO"
         
         End If
     Next cont
@@ -271,8 +271,8 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
         corpor = Cells(cont, 12)
         
         If corpor = "" Or corpor = "0" Or corpor = "-" Or corpor = " - " Then
-         Cells(cont, 12) = "SIN DATO"
-         
+            Cells(cont, 12) = "SIN DATO"
+        
         End If
     Next cont
     
@@ -282,8 +282,8 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
         cod_Cierr = Cells(cont, 13)
         
         If cod_Cierr = "" Or cod_Cierr = "0" Or cod_Cierr = "-" Or cod_Cierr = " - " Then
-         Cells(cont, 13) = "SIN DATO"
-         
+            Cells(cont, 13) = "SIN DATO"
+        
         End If
     Next cont
     
@@ -293,8 +293,8 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
         modo_Rec = Cells(cont, 14)
         
         If modo_Rec = "" Then
-         Cells(cont, 14) = "SIN DATO"
-         
+            Cells(cont, 14) = "SIN DATO"
+        
         End If
     Next cont
 
@@ -304,7 +304,7 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
         dir_Inc = Cells(cont, 23)
         
         If dir_Inc = "" Then
-         Cells(cont, 23) = "SIN DATO"
+            Cells(cont, 23) = "SIN DATO"
         
         End If
     Next cont
@@ -326,8 +326,8 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
                                             Or call_Inc = "SINCALLES" Or call_Inc = "SINDATO" Or call_Inc = "SINDATOS" Or call_Inc = "SINESPECIFICAR" Or call_Inc = "SININFORMACION" _
                                                 Or call_Inc = "SINNOMBRE" Or call_Inc = "SN" Or call_Inc = "SN." Or call_Inc = "SNI CALLE" Or call_Inc = "SP" Or call_Inc = "SP." _
                                                     Or call_Inc = " SIN ESPECIFICAR" Then
-                                                     Cells(cont, 24) = "SIN DATO"
-                 
+                                                        Cells(cont, 24) = "SIN DATO"
+
         End If
     Next cont
 
@@ -348,8 +348,8 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
                                             Or entre_Inc = "SINCALLES" Or entre_Inc = "SINDATO" Or entre_Inc = "SINDATOS" Or entre_Inc = "SINESPECIFICAR" Or entre_Inc = "SININFORMACION" _
                                                 Or entre_Inc = "SINNOMBRE" Or entre_Inc = "SN" Or entre_Inc = "SN." Or entre_Inc = "SNI CALLE" Or entre_Inc = "SP" Or entre_Inc = "SP." _
                                                     Or entre_Inc = " SIN ESPECIFICAR" Then
-                                                     Cells(cont, 25) = "SIN DATO"
-                 
+                                                        Cells(cont, 25) = "SIN DATO"
+
         End If
     Next cont
 
@@ -368,8 +368,8 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
                                     Or col_Inc = "SIN INFORMACION" Or col_Inc = "SIN NOMBRE" Or col_Inc = "SINDATO" Or col_Inc = "SINDATOS" Or col_Inc = "SINESPECIFICAR" _
                                         Or col_Inc = "SININFORMACION" Or col_Inc = "SINNOMBRE" Or col_Inc = "SN" Or col_Inc = "SN." Or col_Inc = "SP" Or col_Inc = "SP." _
                                             Or col_Inc = " SIN ESPECIFICAR" Then
-                                             Cells(cont, 26) = "SIN DATO"
-        
+                                                Cells(cont, 26) = "SIN DATO"
+
         End If
     Next cont
 
@@ -392,8 +392,8 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
                                                     Or ref_Inc = "SINPLACAS" Or ref_Inc = "SINREFERENCIA" Or ref_Inc = "SINREFERENCIAS" Or ref_Inc = "SN" Or ref_Inc = "SN." Or ref_Inc = "SNI CALLE" _
                                                         Or ref_Inc = "SP" Or ref_Inc = "SP." Or ref_Inc = "N P" Or ref_Inc = "NNP" Or ref_Inc = " SIN ESPECIFICAR" Or ref_Inc = "NADA" Or ref_Inc = "NO INDICO" _
                                                             Or ref_Inc = "NP -REFERENCIA" Or ref_Inc = "." Then
-                                                             Cells(cont, 27) = "SIN DATO"
-        
+                                                                Cells(cont, 27) = "SIN DATO"
+
         End If
     Next cont
 
@@ -417,7 +417,7 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
                                                         Or not_Inc = "SINNOMBRE" Or not_Inc = "SINPLAC" Or not_Inc = "SINPLACA" Or not_Inc = "SINPLACAS" Or not_Inc = "SINREFERENCIA" _
                                                             Or not_Inc = "SINREFERENCIAS" Or not_Inc = "SN" Or not_Inc = "SN." Or not_Inc = "SNI CALLE" Or not_Inc = "SP" Or not_Inc = "SP." _
                                                                 Or not_Inc = " SIN ESPECIFICAR" Then
-                                                                 Cells(cont, 28) = "SIN DATO"
+                                                                    Cells(cont, 28) = "SIN DATO"
         
         End If
     Next cont
@@ -428,8 +428,8 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
         h_Rv = Cells(cont, 33)
         
         If h_Rv = "" Then
-         Cells(cont, 33) = "SIN DATO"
-         
+            Cells(cont, 33) = "SIN DATO"
+        
         End If
     Next cont
 
@@ -439,19 +439,19 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
         form_Rv = Cells(cont, 34)
         
         If form_Rv = "" Or form_Rv = "0" Or form_Rv = "-" Or form_Rv = " - " Or form_Rv = "SIN INFORMACION" Then
-         Cells(cont, 34) = "SIN DATO"
+            Cells(cont, 34) = "SIN DATO"
         
         End If
     Next cont
 
 'MOD_V
-       
+
     For cont = 2 To ultFila
         mod_V = Cells(cont, 35)
         
         If mod_V = "" Or mod_V = " " Or mod_V = "-" Or mod_V = " - " Then
-         Cells(cont, 35) = "0"
-         
+            Cells(cont, 35) = "0"
+        
         End If
     Next cont
     
@@ -461,8 +461,8 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
         marc_V = Cells(cont, 36)
         
         If marc_V = "" Or marc_V = "0" Or marc_V = "-" Or marc_V = " - " Or marc_V = "SIN INFORMACION" Or marc_V = " SIN INFORMACION " Or marc_V = " SIN INFORMACION" Then
-         Cells(cont, 36) = "SIN DATO"
-         
+            Cells(cont, 36) = "SIN DATO"
+        
         End If
     Next cont
     
@@ -472,8 +472,8 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
         submar_V = Cells(cont, 37)
         
         If submar_V = "" Or submar_V = "0" Or submar_V = "-" Or submar_V = " - " Or submar_V = "SIN INFORMACION" Or submar_V = " SIN INFORMACION " Or submar_V = " SIN INFORMACION" Then
-         Cells(cont, 37) = "SIN DATO"
-         
+            Cells(cont, 37) = "SIN DATO"
+        
         End If
     Next cont
     
@@ -483,8 +483,8 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
         color_V = Cells(cont, 38)
         
         If color_V = "" Or color_V = "0" Or color_V = " " Or color_V = "-" Or color_V = " - " Or color_V = "SIN INFORMACION" Or color_V = " SIN INFORMACION " Then
-         Cells(cont, 38) = "SIN DATO"
-         
+            Cells(cont, 38) = "SIN DATO"
+        
         End If
     Next cont
 
@@ -498,7 +498,7 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
                 Or placa_V = "SINPLACA" Or placa_V = "SIN NUMERO" Or placa_V = "SINNUM" Or placa_V = "SINNUME" Or placa_V = " SIN INFORMACION " Or placa_V = " SINDATO " _
                     Or placa_V = " SD " Or placa_V = " NP " Or placa_V = "SINDATO" Or placa_V = "SIN" Or placa_V = "SINPLAC" Or placa_V = " SIN " Or placa_V = "NT" _
                         Or placa_V = " SP" Or placa_V = " SP " Or placa_V = " SD" Or placa_V = " SN " Or placa_V = "SP " Then
-                         Cells(cont, 39) = "SIN DATO"
+                            Cells(cont, 39) = "SIN DATO"
         
         End If
     Next cont
@@ -511,8 +511,8 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
         If laminav_ = "" Or laminav_ = "0" Or laminav_ = "-" Or laminav_ = " - " Or laminav_ = "SIN ESPECIFICAR" Or laminav_ = "SINESPECIFICAR" Or laminav_ = "SIN ESPECIFICAR " _
             Or laminav_ = "NP" Or laminav_ = "SD" Or laminav_ = "SP" Or laminav_ = "," Or laminav_ = " , " Or laminav_ = " SIN ESPECIFICAR" Or laminav_ = " SIN INFORMACION " _
                 Or laminav_ = " " Or laminav_ = " SIN ESPECIFICAR " Or laminav_ = "  " Then
-             Cells(cont, 40) = "SIN DATO"
-         
+                Cells(cont, 40) = "SIN DATO"
+        
         End If
     Next cont
 
@@ -523,8 +523,8 @@ ultFila = Range("A" & Rows.Count).End(xlUp).Row
         
         If notav_ = "" Or notav_ = "0" Or notav_ = "-" Or notav_ = " - " Or notav_ = "NP" Or notav_ = "NO PROPORCIONA" Or notav_ = " SIN INFORMACION " Or notav_ = "NP , NP" _
             Or notav_ = "NINGUNA" Or notav_ = "NINGUNO" Or notav_ = "NINGUN A" Or notav_ = "SIN SEÑAS PARTICULARES" Or notav_ = "SIN SEÑAS" Or notav_ = "N´P" Or notav_ = "PA" Then
-             Cells(cont, 41) = "SIN DATO"
-         
+                Cells(cont, 41) = "SIN DATO"
+        
         End If
     Next cont
 
@@ -535,8 +535,8 @@ For cont = 2 To ultFila
         arma = Cells(cont, 46)
         
         If arma = "" Then
-         Cells(cont, 46) = "SIN DATO"
-         
+            Cells(cont, 46) = "SIN DATO"
+        
         End If
     Next cont
                                     
@@ -544,8 +544,8 @@ For cont = 2 To ultFila
         hom_Tot = Cells(cont, 42)
         
         If hom_Tot = "" Then
-         Cells(cont, 42) = "9999"
-         
+            Cells(cont, 42) = "9999"
+        
         End If
     Next cont
     
@@ -553,8 +553,8 @@ For cont = 2 To ultFila
         hom_Hombr = Cells(cont, 43)
         
         If hom_Hombr = "" Then
-         Cells(cont, 43) = "9999"
-         
+            Cells(cont, 43) = "9999"
+        
         End If
     Next cont
         
@@ -562,8 +562,8 @@ For cont = 2 To ultFila
         hom_Muj = Cells(cont, 44)
         
         If hom_Muj = "" Then
-         Cells(cont, 44) = "9999"
-         
+            Cells(cont, 44) = "9999"
+        
         End If
     Next cont
             
@@ -571,13 +571,13 @@ For cont = 2 To ultFila
         hom_Desc = Cells(cont, 45)
         
         If hom_Desc = "" Then
-         Cells(cont, 45) = "9999"
-         
+            Cells(cont, 45) = "9999"
+        
         End If
     Next cont
 
 '>>>>>>>>>>>>>>>>>>>>CUARTA PARTE<<<<<<<<<<<<<<<<<<<<
-   
+
 'Este proceso cambia la fuente de las celdas.
 'Así como su posición y tamaño
 

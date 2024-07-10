@@ -18,7 +18,7 @@ Sub accidentes()
 'Ordena los datos de la hoja Coordenadas de menor a mayor por el campo ID
 
     Range("A1").CurrentRegion.Sort Key1:=Range("A1"), Order1:=xlAscending, _
-     Header:=xlYes, OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom
+        Header:=xlYes, OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom
 
 'Se dividen los datos contenidos en el campo Coordenadas por el método tabulación y dividiendo por coma
 

@@ -11,8 +11,8 @@
     Public Const myVBA7 As Long = 1
 '#Else
     'Private Declare Function AccessibleChildren Lib "oleacc" (ByVal paccContainer As Office.IAccessible, _
-                                                              ByVal iChildStart As Long, ByVal cChildren As Long, _
-                                                              ByRef rgvarChildren As Any, ByRef pcObtained As Long) As Long
+                                                                ByVal iChildStart As Long, ByVal cChildren As Long, _
+                                                                ByRef rgvarChildren As Any, ByRef pcObtained As Long) As Long
     'Public Const myVBA7 As Long = 0
 #End If
 

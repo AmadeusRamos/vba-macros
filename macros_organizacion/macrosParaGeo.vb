@@ -12,7 +12,7 @@ Sub celdasDAI()
         wsDestino As Excel.Worksheet, _
         rngOrigen As Excel.Range, _
         rngDestino As Excel.Range
- 
+
     Application.ScreenUpdating = False
 
 'Indicar las hojas de origen y destino
@@ -49,7 +49,7 @@ Sub celdasDAI()
 'Numeración consecutiva de la columna ID
     For m = 2 To Cells(Rows.Count, "B").End(xlUp).Row
         If Cells(m, "B").Value <> "" Then
-         Cells(m, "A").Value = m - 1
+            Cells(m, "A").Value = m - 1
         End If
     Next m
     
@@ -131,7 +131,7 @@ Sub celdasSeguridad()
 'Numeración consecutiva de la columna ID
     For m = 2 To Cells(Rows.Count, "B").End(xlUp).Row
         If Cells(m, "B").Value <> "" Then
-         Cells(m, "A").Value = m - 1
+            Cells(m, "A").Value = m - 1
         End If
     Next m
     
@@ -214,7 +214,7 @@ Sub celdasAccidentes()
 'Numeración consecutiva de la columna ID
     For m = 2 To Cells(Rows.Count, "B").End(xlUp).Row
         If Cells(m, "B").Value <> "" Then
-         Cells(m, "A").Value = m - 1
+            Cells(m, "A").Value = m - 1
         End If
     Next m
     

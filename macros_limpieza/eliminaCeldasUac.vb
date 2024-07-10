@@ -1,5 +1,5 @@
 Sub eliminaCeldasUac()
-         
+
 Dim rng As Range
 Dim i As Integer, counter As Integer
 
@@ -37,7 +37,7 @@ Next
 'Numeración automática de 1 a n en la columna "A"
 For m = 2 To Cells(Rows.Count, "B").End(xlUp).Row
         If Cells(m, "B").Value <> "" Then
-         Cells(m, "A").Value = m - 1
+            Cells(m, "A").Value = m - 1
         End If
     Next m
     

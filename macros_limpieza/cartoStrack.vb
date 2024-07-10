@@ -57,7 +57,7 @@ Selection.CurrentRegion.Select
     .Replace What:="//", Replacement:="/", LookAt:=xlPart, SearchOrder:=xlByColumns
 
     End With
-  
+
 'Únicamente aplicar a las columnas "V:AO"
     Range("V2", Range("V2").End(xlDown).End(xlToRight)).Select
 
@@ -119,7 +119,7 @@ Selection.CurrentRegion.Select
 'Se eliminan los guiones medios del rango AD:AF y AH:AO
 
 Range("AD2", Range("AD2").End(xlDown).End(xlToRight)).Select
-  
+
     With Selection
     
     .Replace What:="-", Replacement:="", LookAt:=xlPart, SearchOrder:=xlByColumns
@@ -206,7 +206,7 @@ Range("AC2", Range("AC2").End(xlDown)).NumberFormat = "m/d/yyyy"
     
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
-  
+
 Range("A2").Select
 
 End Sub
