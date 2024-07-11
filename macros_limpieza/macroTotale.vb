@@ -45,6 +45,7 @@ End Sub
 Sub eliminarND()
 
 Application.ScreenUpdating = False
+Application.Calculation = xlCalculationManual
 
 'Esta macro elimina los N/D y No Calificados
     Range("A1:AQ1").AutoFilter field:=6, _
@@ -59,7 +60,7 @@ Application.ScreenUpdating = False
     If ActiveSheet.FilterMode = True Then
         ActiveSheet.ShowAllData
     End If
-    
+Application.Calculation = xlCalculationAutomatic    
 Application.ScreenUpdating = True
     
 End Sub
@@ -74,10 +75,16 @@ End Sub
 Sub limpiarRango()
 'https://www.vbatotal.com/leccion-21-seleccionar-una-hoja-o-un-libro-automaticamente-con-vba/
 
+Application.ScreenUpdating = False
+Application.Calculation = xlCalculationManual
+
     Workbooks("04 limpiezaGral_4.xlsm").Activate
 
     Range("A2", Range("A1048576").End(xlUp)).Select
         Selection.resize(, 43).ClearContents
+
+Application.Calculation = xlCalculationAutomatic
+Application.ScreenUpdating = True
 
 End Sub
 
@@ -85,6 +92,7 @@ Sub copiarStrackLimpieza()
 'Esta macro va a copiar los datos desde el libro STRACK al libro 04 limpiezaGral_4
 
 'Application.ScreenUpdating = False
+Application.Calculation = xlCalculationManual
     
     Workbooks("STRACK.xlsx").Activate
     
@@ -108,6 +116,7 @@ Sub copiarStrackLimpieza()
     Range("A2").Select
     ActiveSheet.Paste
     
+Application.Calculation = xlCalculationAutomatic
 'Application.ScreenUpdating = True
 Application.CutCopyMode = False
 
@@ -130,12 +139,14 @@ End Sub
 Sub cerrarLibroStrack()
 
 Application.ScreenUpdating = False
+Application.Calculation = xlCalculationManual
 
     Workbooks("STRACK.xlsx").Activate
     Range("A2").Select
     ActiveWorkbook.Save
     ActiveWorkbook.Close
 
+Application.Calculation = xlCalculationAutomatic
 Application.ScreenUpdating = True
 
 End Sub
@@ -145,12 +156,14 @@ Sub copiarDai2()
 'Esto es de la columna DAI2 a la columna DAI
 
 Application.ScreenUpdating = False
+Application.Calculation = xlCalculationManual
 
     Workbooks("04 limpiezaGral_4.xlsm").Sheets("geo").Activate
     Range("AR2", Range("AR1048576").End(xlUp)).Copy
     Range("E2").Select
     Selection.PasteSpecial Paste:=xlPasteValues
     
+Application.Calculation = xlCalculationAutomatic
 Application.ScreenUpdating = True
 Application.CutCopyMode = False
     
@@ -162,6 +175,7 @@ Sub suprimirDuplicadosND()
     Dim Row As Long
     
 Application.ScreenUpdating = False
+Application.Calculation = xlCalculationManual
     
 'Esta macro elimina los errores #N/D y duplicados de las columnas DAI2, municipio y
 'Folios repetidos del viernes
@@ -186,6 +200,7 @@ Application.ScreenUpdating = False
         Next Row
     End With
     
+Application.Calculation = xlCalculationAutomatic
 Application.ScreenUpdating = True
         
         Range("AR2").Select
@@ -195,7 +210,10 @@ End Sub
 Sub limpiarHojas()
 
     Workbooks("04 limpiezaGral_4.xlsm").Activate
+
     Application.ScreenUpdating = False
+    Application.Calculation = xlCalculationManual
+
     Sheets("DAI").Select
     Range("A2", Range("A1048576").End(xlUp)).Select
         Selection.EntireRow.Delete
@@ -208,6 +226,8 @@ Sub limpiarHojas()
                                     Range("A2", Range("A1048576").End(xlUp)).Select
                                         Selection.EntireRow.Delete
                                             Range("A2").Select
+    
+    Application.Calculation = xlCalculationAutomatic
     Application.ScreenUpdating = True
 
 End Sub
@@ -218,6 +238,7 @@ Workbooks("04 limpiezaGral_4.xlsm").Activate
 Sheets("geo").Select
 
 Application.ScreenUpdating = False
+Application.Calculation = xlCalculationManual
 
 'Ordena la columna W
     ActiveSheet.AutoFilter.Sort.SortFields.Clear
@@ -261,9 +282,11 @@ Application.ScreenUpdating = False
         .Apply
     End With
     
-    Application.ScreenUpdating = True
+Application.Calculation = xlCalculationAutomatic
+Application.ScreenUpdating = True
     
-    Range("AY1").Select
+Range("AY1").Select
+
 End Sub
 
 Sub filasDAI()
@@ -272,6 +295,7 @@ Workbooks("04 limpiezaGral_4.xlsm").Activate
 Sheets("geo").Select
 
 Application.ScreenUpdating = False
+Application.Calculation = xlCalculationManual
 
 'Copia las celdas con criterio DAI en la columna AW
 
@@ -316,10 +340,11 @@ j = 2
         End If
     Next m
     
-    Application.ScreenUpdating = True
-    Application.CutCopyMode = False
+Application.Calculation = xlCalculationAutomatic
+Application.ScreenUpdating = True
+Application.CutCopyMode = False
     
-    Range("A2").Select
+Range("A2").Select
 
 End Sub
 
@@ -329,6 +354,7 @@ Workbooks("04 limpiezaGral_4.xlsm").Activate
 Sheets("geo").Select
 
 Application.ScreenUpdating = False
+Application.Calculation = xlCalculationManual
 
 'Copia las celdas con criterio RESTO en la columna AW
 
@@ -373,10 +399,11 @@ j = 2
         End If
     Next m
 
-    Application.ScreenUpdating = True
-    Application.CutCopyMode = False
+Application.Calculation = xlCalculationAutomatic
+Application.ScreenUpdating = True
+Application.CutCopyMode = False
     
-    Range("A2").Select
+Range("A2").Select
 
 End Sub
 
@@ -386,6 +413,7 @@ Workbooks("04 limpiezaGral_4.xlsm").Activate
 Sheets("geo").Select
 
 Application.ScreenUpdating = False
+Application.Calculation = xlCalculationManual
 
 'Copia las celdas con criterio ACCIDENTES en la columna AW
 
@@ -430,10 +458,11 @@ j = 2
         End If
     Next m
 
-    Application.ScreenUpdating = True
-    Application.CutCopyMode = False
+Application.Calculation = xlCalculationAutomatic
+Application.ScreenUpdating = True
+Application.CutCopyMode = False
     
-    Range("A2").Select
+Range("A2").Select
 
 End Sub
 
@@ -447,7 +476,10 @@ End Sub
 Sub limpiarLibroGeneral()
 
     Workbooks("general.xlsx").Activate
+
     Application.ScreenUpdating = False
+    Application.Calculation = xlCalculationManual
+
     Sheets("DAI").Select
         Range("A2", Range("A1048576").End(xlUp)).Select
             Selection.EntireRow.Delete
@@ -457,6 +489,8 @@ Sub limpiarLibroGeneral()
                             Sheets("accidentes").Select
                                 Range("A2", Range("A1048576").End(xlUp)).Select
                                     Selection.EntireRow.Delete
+    
+    Application.Calculation = xlCalculationAutomatic
     Application.ScreenUpdating = True
 
 End Sub
@@ -466,7 +500,10 @@ Sub deLimpieza_a_General()
 'El libro general es el que se comparte para iniciar la georreferencia
     
     Workbooks("04 limpiezaGral_4.xlsm").Activate
+
     Application.ScreenUpdating = False
+    Application.Calculation = xlCalculationManual
+
     Sheets("DAI").Select
     Selection.Range("A1", Range("A1048576").End(xlUp)).Select
     Selection.resize(, 63).Copy
@@ -487,6 +524,7 @@ Sub deLimpieza_a_General()
     Workbooks("general.xlsx").Activate
     Sheets("accidentes").Range("A2").PasteSpecial xlPasteValuesAndNumberFormats
     
+    Application.Calculation = xlCalculationAutomatic
     Application.ScreenUpdating = True
     Application.CutCopyMode = False
     
@@ -495,12 +533,14 @@ End Sub
 Sub cerrarLibroLimpieza()
 
 Application.ScreenUpdating = False
+Application.Calculation = xlCalculationManual
 
     Workbooks("04 limpiezaGral_4.xlsm").Sheets("geo").Activate
     Range("A2").Select
     ActiveWorkbook.Save
     ActiveWorkbook.Close
 
+Application.Calculation = xlCalculationAutomatic
 Application.ScreenUpdating = True
 
 End Sub
@@ -508,11 +548,13 @@ End Sub
 Sub cerrarLibroGeneral()
 
 Application.ScreenUpdating = False
+Application.Calculation = xlCalculationManual
 
     Workbooks("general.xlsx").Activate
     ActiveWorkbook.Save
     ActiveWorkbook.Close
 
+Application.Calculation = xlCalculationAutomatic
 Application.ScreenUpdating = True
 
 End Sub
