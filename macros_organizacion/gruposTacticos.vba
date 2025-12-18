@@ -1,5 +1,5 @@
 Sub gposTacticos()
-'Macro para ordenar los datos de los veinte municipios propuestos por el área de Grupos Tácticos
+'Macro para ordenar los datos de los 23 municipios propuestos por el área de Grupos Tácticos
 'Esta macro ordena de mayor a menor el conteo de la incidencia por colonia en cada municipio
 'De estos datos se obtienen una serie de relojes aorísticos o matrices de la densidad delictiva
 
@@ -352,12 +352,12 @@ Application.ScreenUpdating = False
     Range(Selection, Selection.End(xlToRight)).Select
     Range(Selection, Selection.End(xlDown)).Select
     ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E3283:E3368") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E3283:E3371") _
         , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B3283:B3368") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B3283:B3371") _
         , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
     With ActiveWorkbook.Worksheets("Rangos").Sort
-        .SetRange Range("A3282:E3368")
+        .SetRange Range("A3282:E3371")
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -366,16 +366,52 @@ Application.ScreenUpdating = False
     End With
     
     'MEXICALTZINGO
-    Range("A3371").Select
+    Range("A3374").Select
     Range(Selection, Selection.End(xlToRight)).Select
     Range(Selection, Selection.End(xlDown)).Select
     ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E3372:E3393") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E3375:E3396") _
         , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
-    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B3372:B3393") _
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B3375:B3396") _
         , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
     With ActiveWorkbook.Worksheets("Rangos").Sort
-        .SetRange Range("A3371:E3393")
+        .SetRange Range("A3374:E3396")
+        .Header = xlYes
+        .MatchCase = False
+        .Orientation = xlTopToBottom
+        .SortMethod = xlPinYin
+        .Apply
+    End With
+    
+    'MALINALCO
+    Range("A3399").Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Range(Selection, Selection.End(xlDown)).Select
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E3400:E3443") _
+        , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B3400:B3443") _
+        , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
+    With ActiveWorkbook.Worksheets("Rangos").Sort
+        .SetRange Range("A3399:E3443")
+        .Header = xlYes
+        .MatchCase = False
+        .Orientation = xlTopToBottom
+        .SortMethod = xlPinYin
+        .Apply
+    End With
+    
+    'OCUILAN
+    Range("A3446").Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Range(Selection, Selection.End(xlDown)).Select
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Clear
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("E3447:E3495") _
+        , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
+    ActiveWorkbook.Worksheets("Rangos").Sort.SortFields.Add2 Key:=Range("B3447:B3495") _
+        , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
+    With ActiveWorkbook.Worksheets("Rangos").Sort
+        .SetRange Range("A3446:E3495")
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -383,6 +419,7 @@ Application.ScreenUpdating = False
         .Apply
     End With
 
+    
     Range("B2").Select
     
 Application.ScreenUpdating = True
