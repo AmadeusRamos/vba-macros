@@ -7,6 +7,14 @@ Sub cartoStrack()
 'Tambien elimina saltos de página y acentos
 'Es importante contar 43 columnas, no más no menos
 
+
+Sub cartoStrack()
+
+' Limpieza de Strack
+' Esta acción elimina los bordes de las celdas
+' Tambien elimina saltos de línea y acentos
+' Es importante contar 43 columnas, no más no menos
+
 Application.ScreenUpdating = False
 Application.DisplayAlerts = False
 
@@ -18,6 +26,7 @@ Dim g As Range, h As Range, i As Range, j As Range, k As Range, l As Range
 Dim m As Range, n As Range, o As Range, p As Range, q As Range, r As Range
 Dim s As Range, t As Range, u As Range, v As Range, w As Range, x As Range
 Dim aa As Range, bb As Range, cc As Range, dd As Range, ee As Range
+Dim ff As Range, gg As Range, hh As Range
 
 Selection.CurrentRegion.Select
 
@@ -57,8 +66,8 @@ Selection.CurrentRegion.Select
     .Replace What:="//", Replacement:="/", LookAt:=xlPart, SearchOrder:=xlByColumns
 
     End With
-
-'Únicamente aplicar a las columnas "V:AO"
+  
+' Únicamente aplicar a las columnas "V:AO"
     Range("V2", Range("V2").End(xlDown).End(xlToRight)).Select
 
     With Selection
@@ -91,7 +100,7 @@ Selection.CurrentRegion.Select
         
     End With
     
-'Elimina las comas del rango de columnas W:AA
+' Elimina las comas del rango de columnas W:AA
 
     Set aa = Range("W2", Range("W2").End(xlDown))
     Set bb = Range("X2", Range("X2").End(xlDown))
@@ -107,7 +116,7 @@ Selection.CurrentRegion.Select
     
     End With
 
-'Convierte en mayúsculas todo el rango en uso
+' Convierte en mayúsculas todo el rango en uso
     
     On Error Resume Next
     Selection.CurrentRegion.Select
@@ -116,17 +125,17 @@ Selection.CurrentRegion.Select
         rng.Value = VBA.UCase(rng.Value)
     Next
 
-'Se eliminan los guiones medios del rango AD:AF y AH:AO
+' Se eliminan los guiones medios del rango AD:AF y AH:AO
 
 Range("AD2", Range("AD2").End(xlDown).End(xlToRight)).Select
-
+  
     With Selection
     
     .Replace What:="-", Replacement:="", LookAt:=xlPart, SearchOrder:=xlByColumns
     
     End With
 
-'Quita los espacios de los rangos D:N, V:AB Y AJ:AO
+' Quita los espacios de los rangos D:N, V:AB Y AJ:AO
 'Rango D:N
     Set a = Range("D2", Range("D2").End(xlDown))
     Set b = Range("E2", Range("E2").End(xlDown))
@@ -164,7 +173,21 @@ Range("AD2", Range("AD2").End(xlDown).End(xlToRight)).Select
 Range("O2", Range("O2").End(xlDown)).NumberFormat = "m/d/yyyy"
 Range("AC2", Range("AC2").End(xlDown)).NumberFormat = "m/d/yyyy"
 
-'Transforma el formato de fecha a la que se ocupa en postgres
+' Aplicar función LIMPIAR para eliminar el tabulado o sangria así como los primeros 32 caracteres no imprimibles del codigo ASCII
+
+    Set ff = Range("AA2", Range("AA1048576").End(xlUp))
+    Set gg = Range("AB2", Range("AB1048576").End(xlUp))
+    Set hh = Range("AO2", Range("AO1048576").End(xlUp))
+    
+    Union(ff, gg, hh).Select
+    
+    
+    For Each celda In Selection
+    celda.Value = WorksheetFunction.Clean(celda.Value)
+    Next
+
+
+' Transforma el formato de fecha a la que se ocupa en postgres
     Columns("O:O").Select
     Selection.TextToColumns Destination:=Range("O1"), DataType:=xlFixedWidth, _
         fieldinfo:=Array(Array(0, 4), Array(10, 1)), TrailingMinusNumbers:=True
@@ -173,12 +196,15 @@ Range("AC2", Range("AC2").End(xlDown)).NumberFormat = "m/d/yyyy"
     Selection.TextToColumns Destination:=Range("AC1"), DataType:=xlFixedWidth, _
         fieldinfo:=Array(Array(0, 4), Array(10, 1)), TrailingMinusNumbers:=True
 
-'Esta instrucción elimina los objetos antes creados para liberar memoria
+' Esta instrucción elimina los objetos antes creados para liberar memoria
     Set aa = Nothing
     Set bb = Nothing
     Set cc = Nothing
     Set dd = Nothing
     Set ee = Nothing
+    Set ff = Nothing
+    Set gg = Nothing
+    Set hh = Nothing
     Set a = Nothing
     Set b = Nothing
     Set c = Nothing
@@ -206,7 +232,7 @@ Range("AC2", Range("AC2").End(xlDown)).NumberFormat = "m/d/yyyy"
     
 Application.ScreenUpdating = True
 Application.DisplayAlerts = True
-
+  
 Range("A2").Select
 
 End Sub
